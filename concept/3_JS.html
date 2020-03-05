@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WEBn</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- <input type = "button" value = "night mode" onclick = "
+      document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color = 'white';">
+      <input type = "button" value = "day mode" onclick = " document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color = 'black';"> -->
+      <script>
+      //Maked Function
+      <!--개별적인 함수를 만들게 되면 this가 함수가 아닌 전역객체를 가리키게 되므로 this를 self로 바꾼 것. 또한 외부에서 함수를 호출할때 함수가 버튼을 가리킬 수 있게끔 인자로 this를 사용해 함수의 매개변수의 인자로 this가 들어오면서 버튼이 작동하는 것.-->
+        function LinksSetColor(color){
+          var alist = document.querySelectorAll('a');
+          var i = 0;
+          while(i<alist.length){
+              alist[i].style.color = color;
+              i = i + 1;
+          }
+        }
+        function BodysetColor(color){
+          document.querySelector('body').style.color = color;
+        }//var target은 nightdayHandler의 소속 변수이므로 오류 발생
+        function BodySetBackgroundColor(color){
+          document.querySelector('body').style.backgroundColor = color;
+        }
+        function nightdayHandler(self){
+          var target = document.querySelector('body');
+           if (self.value === 'night'){
+            Body.SetBackgroundColor('black');
+            Body.setColor('white');
+            Links.SetColor('powderblue');
+            self.value = 'day';
+          }else{
+            Body.SetBackgroundColor('white');
+            BodysetColor('black');
+            Links.SetColor('gray');
+            self.value = 'night';
+          }
+        }
+      </script>
+      <input type = "button" value = "night" onclick = "nightdayHandler(this)">
+      <!--위의 함수에서는 매개변수(parameter)로 self로 사용하고, 아래에 함수를 호출할때는 this를 사용-->
+    <h1><a href ="0_main_page.html">WEB</a></h1>
+    <div id = "grid">
+      <ol>
+        <li><a href = "1_HTML.html">HTML</a></li>
+        <li><a href = "2_CSS.html">CSS</a></li>
+        <li><a href = "3_JS.html">JavaScript</a></li>
+      </ol>
+      <div id = "article">
+        <p><h2>JavaScript</h2>
+          JavaScript (/ˈdʒɑːvəˌskrɪpt/), often abbreviated as JS, is a high-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.<br>
+          Alongside HTML and CSS, JavaScript is one of the core technologies of the World Wide Web. JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it, and major web browsers have a dedicated JavaScript engine to execute it.<br>
+          As a multi-paradigm language, JavaScript supports event-driven, functional, and imperative (including object-oriented and prototype-based) programming styles. It has APIs for working with text, arrays, dates, regular expressions, and the DOM, but the language itself does not include any I/O, such as networking, storage, or graphics facilities. It relies upon the host environment in which it is embedded to provide these features.</p>
+      </div>
+    </div>
+  </body>
+</html>

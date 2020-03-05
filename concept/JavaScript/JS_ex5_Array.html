@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Array</h1>
+      <h2>Syntax</h2>
+      <script>
+      var coworker = ['egoing', 'leezche'];
+      </script>
+      <h2>Get</h2>
+      <script>
+        document.write(coworker[0]);
+        document.write(" ");
+        document.write(coworker[1]);
+      </script>
+      <h2>Add</h2>
+      <script>
+          coworker.push('duru');
+          coworker.push('taeho');
+      </script>
+      <h2>Loop1_for statements</h2>
+      <script>
+        for(i=0;i<coworker.length; i++){
+          document.write('<li>'+coworker[i]+'</li>');
+        }
+        </script>
+        <h2>Loop2_while statements</h2>
+        <script>
+          var i = 0;
+          while(i < coworker.length){
+            document.write('<li><a href = "http://a.com'+coworker[i]+'">'+coworker[i]+'</a><li>');
+          <!--html로 쓰인 부분은 script 태그 내에서 ''로 묶어주어야 함-->
+            i = i + 1;
+          }
+        </script>
+      <h2>Count</h2>
+      <script>
+        document.write(coworker.length);
+      </script>
+  </body>
+</html>

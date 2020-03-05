@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Object</h1>
+
+    <h2>Create</h2>
+    <script>
+    //원하는 정보에 도달할 수 있게 해주는 열쇠 - programming, designer
+      var coworker = {
+        "programmer" : "egoing",
+        "designer" : "leezche"
+    };
+    //정보를 가져올때는 '객체명.키값'
+    document.write("Programmer : "+coworker.programmer+"<br>");
+    document.write("Designer : "+coworker.designer+"<br>");
+    //객체에 정보를 추가하는 방식 (1) : '객체명.키값 = 정보'
+    coworker.bookkeeper = "duru";
+    document.write("BookKeeper : "+coworker.bookkeeper+"<br>");
+    //객체에 정보를 추가하는 방식(2) : 키 값에 띄어쓰기가 들어갈 때는 데이터를 다룰때 사용되는 대괄호([])를 이용 가능 --> '객체명[키 값] = 정보'
+    coworker["data scientist"] = "taeho";
+    document.write("Data scientist : "+coworker["data scientist"]+"<br>");
+    </script>
+
+
+    <h2>Iterator</h2>
+    <script>
+    //for(var key in 객체) : coworker의 key값들을 가져오는 반복문(변수명이 key가 아니어도 무관? - 작동에는 문제 없음)
+    for(var key in coworker){
+      document.write('key : '+key+" / data : "+coworker[key]+'<br>')
+    }
+    </script>
+
+
+    <h2>Property & Method</h2>
+    <script>
+    //function showAll(){} = coworker.showAll = function(){}
+    coworker.showAll = function(){
+      for(var key in this){
+        document.write('key : '+key+" / data : "+this[key]+'<br>');
+      }
+    }
+    coworker.showAll(); //key : programmer / ...부터 해서 key : showAll / data : function(){for(...)...}까지 출력됨(showAll조차도 coworker에 소속된 데이터이므로 같이 출력됨 - 지우고 싶으면 지우는 코드를 입력해넣으면 됨)
+    //showAll 안에서 이 함수가 소속되어 있는 객체를 가리키는 약속된 기호가 this.
+    //coworker[key] -->this[key] : this를 넣음으로써 coworker의 객체명이 변경되어도 작동에 문제가 발생되지 않음
+    //객체에 소속된 변수의 값으로 함수를 지정할 수 있고, 객체에 소속된 함수를 만들 수 있음. 객체에 소속된 함수를 Method라고 하고, 객체에 소속된 변수(programming, designer, bookkeeper, data scientist)를 Property라고 부름(맥락적으로 같은 것을 부르는 용어가 상이한 것)
+    </script>
+  </body>
+</html>
