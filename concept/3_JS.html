@@ -12,33 +12,55 @@
       <input type = "button" value = "day mode" onclick = " document.querySelector('body').style.backgroundColor = 'white';
       document.querySelector('body').style.color = 'black';"> -->
       <script>
-      //Maked Function
-      <!--개별적인 함수를 만들게 되면 this가 함수가 아닌 전역객체를 가리키게 되므로 this를 self로 바꾼 것. 또한 외부에서 함수를 호출할때 함수가 버튼을 가리킬 수 있게끔 인자로 this를 사용해 함수의 매개변수의 인자로 this가 들어오면서 버튼이 작동하는 것.-->
-        function LinksSetColor(color){
-          var alist = document.querySelectorAll('a');
-          var i = 0;
-          while(i<alist.length){
-              alist[i].style.color = color;
-              i = i + 1;
+      //Maked Object
+        var Links = {
+          setColor : function(color){
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            while(i<alist.length){
+                alist[i].style.color = color;
+                i = i + 1;
+              }
+            }
+          }
+        //다음 코드를 객체에 담음
+        // function LinksSetColor(color){
+        //   var alist = document.querySelectorAll('a');
+        //   var i = 0;
+        //   while(i<alist.length){
+        //       alist[i].style.color = color;
+        //       i = i + 1;
+        //   }
+        // }
+
+        var Body = {
+          setColor : function(color){
+            document.querySelector('body').style.color = color;
+          }, //객체의 property끼리를 구분하기 위해 ',' 사용
+          setBackgroundColor : function(color){
+            document.querySelector('body').style.backgroundColor = color;
           }
         }
-        function BodysetColor(color){
-          document.querySelector('body').style.color = color;
-        }//var target은 nightdayHandler의 소속 변수이므로 오류 발생
-        function BodySetBackgroundColor(color){
-          document.querySelector('body').style.backgroundColor = color;
-        }
+        //다음 코드를 객체에 담음
+        // function BodysetColor(color){
+        //   document.querySelector('body').style.color = color;
+        // }
+        // function BodySetBackgroundColor(color){
+        //   document.querySelector('body').style.backgroundColor = color;
+        // }
+
+        <!--개별적인 함수를 만들게 되면 this가 함수가 아닌 전역객체를 가리키게 되므로 this를 self로 바꾼 것. 또한 외부에서 함수를 호출할때 함수가 버튼을 가리킬 수 있게끔 인자로 this를 사용해 함수의 매개변수의 인자로 this가 들어오면서 버튼이 작동하는 것.-->
         function nightdayHandler(self){
           var target = document.querySelector('body');
            if (self.value === 'night'){
-            Body.SetBackgroundColor('black');
+            Body.setBackgroundColor('black');
             Body.setColor('white');
-            Links.SetColor('powderblue');
+            Links.setColor('powderblue');
             self.value = 'day';
           }else{
-            Body.SetBackgroundColor('white');
-            BodysetColor('black');
-            Links.SetColor('gray');
+            Body.setBackgroundColor('white');
+            Body.setColor('black');
+            Links.setColor('gray');
             self.value = 'night';
           }
         }
