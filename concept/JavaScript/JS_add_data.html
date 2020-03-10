@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <h1>function</h1>
+  <h2>1</h2>
+  <script>
+  function func1(){
+  document.write("this is func1");
+  }
+  </script>
+  <h2>2</h2>
+  <script>
+  var func2 = function(){
+  document.write("this is func2");
+  }
+  </script>
+  ======================================
+  <h1>add</h1>
+  <h2>push, concat, unshift, splice</h2>
+  <script>
+  var array = ['a', 'b', 'c', 'd'];
+  
+  //배열의 끝에 하나의 원소 추가
+  array.push('e');
+  alert(array);
+  
+  //복수의 원소 추가
+  array.concat(['f', 'g']);
+  alert(array);
+  
+  //배열의 시작점에 원소를 추가(배열의 기존 값들의 색인을 1씩 증가)
+  array.unshift('h');
+  alert(array);
+  //첫번째 인자에 해당하는 원소부터 두번째 인자에 해당하는 원소의 숫자만큼의 값을 배열로부터 제거한 후에 리턴
+  array.splice('i');
+  alert(array);
+  </script>
+  
+  </body>
+  </html>
